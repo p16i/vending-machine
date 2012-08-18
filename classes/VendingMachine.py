@@ -12,16 +12,23 @@ class VendingMachine :
     # Sell method
     def sell( self, order, money ):
         res = dict()
-        res['status'] = 1
-        res['change'] = money - order.price()
+        stock = self.__stock
+        if( stock[order] > 0 ):
+            # Decrease stock
+            self.__stock[order] = self.__stock[order] - 1
+
+            res['status'] = 1
+            res['change'] = money - order.price()
+        else:
+            res['status'] = 0
         return res
 
     # Encapsulate Attr
 
     # Stock
-    def stock():
+    def stock( self ):
         return self.__stock;
 
     def add_stock( self, product, amount ):
-        self.__stock[product] = 10
+        self.__stock[product] = amount
 
