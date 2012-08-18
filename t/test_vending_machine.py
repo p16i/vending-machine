@@ -3,6 +3,7 @@
 import unittest
 import os.path
 from classes.VendingMachine import *
+from classes.Goods import *
 
 class TestVendingMachine( unittest.TestCase ):
 
@@ -13,12 +14,12 @@ class TestVendingMachine( unittest.TestCase ):
 
     def test_buy( self ):
         # Add stock
-        product = ( 'PEPSI', 20 )
+        product = Goods( 'PEPSI', 20 );
         self.my_machine.add_stock( product, 10 );
 
         # By PEPSI
         result = self.my_machine.sell( product, 100 )
-        self.assertTrue( result['status'], "We can sell" );
+        self.assertTrue( result['status'], "Machine can sell" );
         self.assertEqual( result['change'], 80, "Got collect change" );
 
 

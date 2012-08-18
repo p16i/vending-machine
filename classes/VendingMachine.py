@@ -13,7 +13,7 @@ class VendingMachine :
     def sell( self, order, money ):
         res = dict()
         res['status'] = 1
-        res['change'] = money - order[1]
+        res['change'] = money - order.price()
         return res
 
     # Encapsulate Attr

@@ -10,9 +10,9 @@ class Goods :
     #Encapsulate
 
     # Name
-    def name():
+    def name( self ):
         return self.__name
 
     # Price
-    def price():
+    def price( self ):
         return self.__price
